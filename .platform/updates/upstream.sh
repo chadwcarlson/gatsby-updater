@@ -2,17 +2,17 @@
 
 set -e
 
-git remote add upstream $UPSTREAM_REMOTE
-                    
+# Fetch upstream.
+git remote add upstream $UPSTREAM_REMOTE              
 git fetch --all
 git merge --allow-unrelated-histories -X theirs --squash upstream/master
 
+# Modify upstream.
 rm package-lock.json
 mv README.md README_UPSTREAM.md
-
 rsync -aP .platform/template/files/ .
-# cp .platform/template/files/README.md README.md
 
+# Commit.
 git add .
 STAGED_UPDATES=$(git diff --cached)
 if [ ${#STAGED_UPDATES} -gt 0 ]; then

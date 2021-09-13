@@ -16,7 +16,7 @@ cp .platform/template/files/README.md README.md
 git add .
 STAGED_UPDATES=$(git diff --cached)
 if [ ${#STAGED_UPDATES} -gt 0 ]; then
-    git commit -m "Upstream updates found."
+    git commit -m "Upstream updates."
 else
     echo "No upstream updates found. Skipping."
 fi

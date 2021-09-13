@@ -12,6 +12,10 @@ Some of these will be Source operations, others will be github actions, or combi
 
 Remember: doesn't work on Pull request environments.
 
+Notes:
+
+- This doesnt really handle the `files` directory or patches. For example, I'm losing the README file. 
+
 ```python
 from .remote import RemoteProject
 

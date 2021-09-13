@@ -11,8 +11,10 @@ git merge --allow-unrelated-histories -X theirs --squash upstream/master
 rm package-lock.json
 mv README.md README_UPSTREAM.md
 rsync -aP .platform/template/files/ .
+ls -a
 
 # Commit.
+# .platform/updates/commit.sh "Upstream updates."
 git add .
 STAGED_UPDATES=$(git diff --cached)
 if [ ${#STAGED_UPDATES} -gt 0 ]; then

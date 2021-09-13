@@ -26,8 +26,8 @@
             update:
                 command: ls -a .platform
             update-dependencies:
-                command: ./updates/dependencies.sh
+                command: .platform/updates/dependencies.sh
             update-infrastructure:
-                command: ./updates/infrastructure.sh
+                command: .platform/updates/infrastructure.sh
             update-upstream:
-                command: ./updates/upstream.sh
+                command: .platform/updates/upstream.sh

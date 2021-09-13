@@ -11,8 +11,9 @@
     hooks:
             build: |
                 set -e
-
-                git clone $UPSTREAM_ROUTE
+                echo $UPSTREAM_REMOTE
+                git clone https://github.com/gatsbyjs/gatsby-starter-blog.git
+                # git clone $UPSTREAM_ROUTE
                 cd gatsby-starter-blog
 
                 yarn --ignore-optional --frozen-lockfile 
@@ -20,7 +21,7 @@
     web:
         locations:
             '/':
-                root: 'public'
+                root: 'gatsby-starter-blog/public'
                 index: ['index.html']
                 scripts: false
                 allow: true

@@ -12,7 +12,7 @@
             build: |
                 set -e
 
-                git clone $UPSTREAM_ROUTE gatsby
+                git clone $UPSTREAM_REMOTE gatsby
                 cd gatsby
 
                 yarn --ignore-optional --frozen-lockfile 

@@ -11,12 +11,16 @@
     hooks:
             build: |
                 set -e
+
+                git clone $UPSTREAM_ROUTE gatsby
+                cd gatsby
+
                 yarn --ignore-optional --frozen-lockfile 
                 yarn build
     web:
         locations:
             '/':
-                root: 'public'
+                root: 'gatsby/public'
                 index: ['index.html']
                 scripts: false
                 allow: true

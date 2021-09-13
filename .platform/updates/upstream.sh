@@ -8,6 +8,8 @@ git fetch --all
 git merge --allow-unrelated-histories -X theirs --squash upstream/master
 
 rm package-lock.json
+mv README.md README_UPSTREAM.md
+cp .platform/template/files/README.md README.md
 
 git add .
 STAGED_UPDATES=$(git diff --cached)

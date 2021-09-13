@@ -6,6 +6,7 @@ Should include:
 - build dependencies
 - infrastructure
 - common documentation
+- github token refresh on integrations
 
 Some of these will be Source operations, others will be github actions, or combination of both. It would also be great to include activity scripts with these for our own monitoring and as an example, which would fall under (common). In those cases we would just use an action to look for upstream updates, and then update the project's activity script. 
 

@@ -1,36 +1,36 @@
-- name: 'app'
-  type: 'nodejs:14'
-  variables:
-        env:
-            UPSTREAM_REMOTE: "https://github.com/gatsbyjs/gatsby-starter-blog.git" 
-  build:
-        flavor: none
-  dependencies:
-        nodejs:
-            yarn: "1.22.5"
-  hooks:
-        build: |
-            set -e
+-   name: 'app'
+    type: 'nodejs:14'
+    variables:
+            env:
+                UPSTREAM_REMOTE: "https://github.com/gatsbyjs/gatsby-starter-blog.git" 
+    build:
+            flavor: none
+    dependencies:
+            nodejs:
+                yarn: "1.22.5"
+    hooks:
+            build: |
+                set -e
 
-            git clone $UPSTREAM_ROUTE
-            cd gatsby-starter-blog
-            
-            yarn --ignore-optional --frozen-lockfile 
-            yarn build
-  web:
-      locations:
-          '/':
-              root: 'public'
-              index: ['index.html']
-              scripts: false
-              allow: true
-source:
-    operations:
-        update-dependencies:
-            command: !include
-                type: string
-                path: updates/dependencies.sh
-        update-upstream:
-            command: !include
-                type: string
-                path: updates/upstream.sh
+                git clone $UPSTREAM_ROUTE
+                cd gatsby-starter-blog
+
+                yarn --ignore-optional --frozen-lockfile 
+                yarn build
+    web:
+        locations:
+            '/':
+                root: 'public'
+                index: ['index.html']
+                scripts: false
+                allow: true
+    source:
+        operations:
+            update-dependencies:
+                command: !include
+                    type: string
+                    path: updates/dependencies.sh
+            update-upstream:
+                command: !include
+                    type: string
+                    path: updates/upstream.sh

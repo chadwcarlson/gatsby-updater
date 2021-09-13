@@ -1,19 +1,18 @@
 -   name: 'app'
     type: 'nodejs:14'
     variables:
-            env:
-                UPSTREAM_REMOTE: "https://github.com/gatsbyjs/gatsby-starter-blog.git" 
-    build:
-            flavor: none
+        env:
+            UPSTREAM_REMOTE: "https://github.com/gatsbyjs/gatsby-starter-blog.git" 
     dependencies:
-            nodejs:
-                yarn: "1.22.5"
+        nodejs:
+            yarn: "1.22.5"
+    build:
+        flavor: none
     hooks:
-            build: |
-                set -e
-
-                yarn --ignore-optional --frozen-lockfile 
-                yarn build
+        build: |
+            set -e
+            yarn --ignore-optional --frozen-lockfile 
+            yarn build
     web:
         locations:
             '/':

@@ -3,8 +3,11 @@
 set -e
 
 git remote add upstream $UPSTREAM_REMOTE
+                    
 git fetch --all
-git merge upstream/master
+git merge --allow-unrelated-histories -X theirs --squash upstream/master
+
+rm package-lock.json
 
 git add .
 STAGED_UPDATES=$(git diff --cached)

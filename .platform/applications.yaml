@@ -24,30 +24,10 @@
     source:
         operations:
             update:
-                command: |
-                    set -e
-
-                    git remote add upstream $UPSTREAM_REMOTE
-                                        
-                    git fetch --all
-                    git merge --allow-unrelated-histories -X theirs --squash upstream/master
-
-                    rm package-lock.json
-
-                    git add .
-                    STAGED_UPDATES=$(git diff --cached)
-                    if [ ${#STAGED_UPDATES} -gt 0 ]; then
-                        git commit -m "Upstream updates found."
-                    else
-                        echo "No upstream updates found. Skipping."
-                    fi
-    # source:
-    #     operations:
-    #         update-dependencies:
-    #             command: !include
-    #                 type: string
-    #                 path: updates/dependencies.sh
-    #         update-upstream:
-    #             command: !include
-    #                 type: string
-    #                 path: updates/upstream.sh
+                command: ls -a .platform
+            update-dependencies:
+                command: ./updates/dependencies.sh
+            update-infrastructure:
+                command: ./updates/infrastructure.sh
+            update-upstream:
+                command: ./updates/upstream.sh

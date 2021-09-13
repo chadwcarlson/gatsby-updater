@@ -24,13 +24,13 @@
                 index: ['index.html']
                 scripts: false
                 allow: true
-    source:
-        operations:
-            update-dependencies:
-                command: !include
-                    type: string
-                    path: updates/dependencies.sh
-            update-upstream:
-                command: !include
-                    type: string
-                    path: updates/upstream.sh
+    # source:
+    #     operations:
+    #         update-dependencies:
+    #             command: !include
+    #                 type: string
+    #                 path: updates/dependencies.sh
+    #         update-upstream:
+    #             command: !include
+    #                 type: string
+    #                 path: updates/upstream.sh

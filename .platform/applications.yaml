@@ -11,15 +11,12 @@
     hooks:
             build: |
                 set -e
-                git clone $UPSTREAM_REMOTE
-                cd gatsby-starter-blog
-
                 yarn --ignore-optional --frozen-lockfile 
                 yarn build
     web:
         locations:
             '/':
-                root: 'gatsby-starter-blog/public'
+                root: 'public'
                 index: ['index.html']
                 scripts: false
                 allow: true
@@ -30,8 +27,8 @@
                     set -e
 
                     git remote add upstream $UPSTREAM_REMOTE
+                    git checkout README.md
                     git fetch --all
-                    # git merge upstream/master
                     git merge --allow-unrelated-histories -X theirs --squash upstream/master
 
                     git add .

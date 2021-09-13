@@ -11,9 +11,7 @@
     hooks:
             build: |
                 set -e
-                echo $UPSTREAM_REMOTE
-                git clone https://github.com/gatsbyjs/gatsby-starter-blog.git
-                # git clone $UPSTREAM_ROUTE
+                git clone $UPSTREAM_REMOTE
                 cd gatsby-starter-blog
 
                 yarn --ignore-optional --frozen-lockfile 
@@ -25,6 +23,12 @@
                 index: ['index.html']
                 scripts: false
                 allow: true
+    source:
+        operations:
+            update:
+                command: !include
+                    type: string
+                    path: updates/upstream.sh
     # source:
     #     operations:
     #         update-dependencies:

@@ -24,6 +24,7 @@ git status
 git add .
 
 echo "****************** FINAL OUTCOME ******************"
+ls -a
 git branch 
 git status
 

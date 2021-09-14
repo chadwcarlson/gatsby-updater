@@ -16,6 +16,9 @@ cp -R .platform/template/files/* .
 
 # Commit.
 git add .
+ls -a
+git status 
+
 STAGED_UPDATES=$(git diff --cached)
 if [ ${#STAGED_UPDATES} -gt 0 ]; then
     git commit -m "Upstream updates."

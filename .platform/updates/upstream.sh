@@ -12,7 +12,6 @@ rm package-lock.json
 mv README.md README_UPSTREAM.md
 
 # Add template files.
-rsync -aP .platform/template/files/ .
 cp -R .platform/template/files/* .
 
 # Commit.

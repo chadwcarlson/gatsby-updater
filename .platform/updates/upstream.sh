@@ -16,7 +16,7 @@ mv README.md README_UPSTREAM.md
 # Add template files.
 echo "- Adding common template files."
 cp -R .platform/template/files/. .
-git remote -v
+git add .github
 
 # Stage and commit.
 git add .

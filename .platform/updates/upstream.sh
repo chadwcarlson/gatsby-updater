@@ -4,7 +4,7 @@ set -e
 
 # Fetch upstream.
 echo "- Retrieving upstream."
-git remote add upstream $UPSTREAM_REMOTE              
+git remote add upstream $UPSTREAM_REMOTE       
 git fetch --all
 git merge --allow-unrelated-histories -X theirs --squash upstream/master
 
@@ -16,7 +16,7 @@ mv README.md README_UPSTREAM.md
 # Add template files.
 echo "- Adding common template files."
 cp -R .platform/template/files/. .
-mv github .github
+git remote -v
 
 # Stage and commit.
 git add .

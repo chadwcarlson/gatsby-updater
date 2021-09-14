@@ -4,8 +4,7 @@ set -e
 
 git clone https://github.com/chadwcarlson/common-actions.git
 rsync -aP common-actions .
-ls
-git status
+rm -rf common-actions
 git add .
 
 # git status

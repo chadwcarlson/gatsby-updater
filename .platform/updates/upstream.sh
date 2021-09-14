@@ -3,35 +3,25 @@
 set -e
 
 # Fetch upstream.
-echo "****************** UPDATING TEMPLATE FROM UPSTREAM ******************"
+echo "- Retrieving upstream."
 git remote add upstream $UPSTREAM_REMOTE              
 git fetch --all
 git merge --allow-unrelated-histories -X theirs --squash upstream/master
-git status
-git add .
 
 # Modify upstream.
-echo "****************** MODIFYING UPSTREAM FOR TEMPLATE ******************"
+echo "- Modifying upstream."
 rm package-lock.json
 mv README.md README_UPSTREAM.md
-git status
-git add .
 
 # Add template files.
-echo "****************** UPDATING TEMPLATE FROM UPSTREAM ******************"
+echo "- Adding common template files."
 cp -R .platform/template/files/. .
-git status
+
+# Stage and commit.
 git add .
-
-echo "****************** FINAL OUTCOME ******************"
-ls -a
-git branch 
-git status
-
-# Commit.
 STAGED_UPDATES=$(git diff --cached)
 if [ ${#STAGED_UPDATES} -gt 0 ]; then
-    git commit -m "Upstream updates."
+    git commit -m "Apply upstream updates."
 else
     echo "No upstream updates found. Skipping."
 fi

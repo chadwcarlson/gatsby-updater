@@ -10,7 +10,7 @@ git status
 git add .
 
 git status
-
+git branch
 STAGED_UPDATES=$(git diff --cached)
 if [ ${#STAGED_UPDATES} -gt 0 ]; then
     git commit -m "Upstream updates."

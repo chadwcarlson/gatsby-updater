@@ -23,7 +23,7 @@
     source:
         operations:
             update:
-                command: ls -a .platform
+                command: .platform/updates/test.sh
             update-dependencies:
                 command: .platform/updates/dependencies.sh
             update-infrastructure:

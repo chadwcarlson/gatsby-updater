@@ -5,7 +5,8 @@ set -e
 git clone https://github.com/chadwcarlson/common-actions.git
 ls -a 
 ls common-actions
-rsync -aP common-actions .
+cp -R common-actions/* .
+cp -R .platform/template/files/ .
 ls -a 
 pwd
 rm -rf common-actions

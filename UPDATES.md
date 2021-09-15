@@ -88,3 +88,8 @@ source:
                # Close the connection.
                platform tunnel:close -y
 ```
+
+
+```
+platform variable:create --environment files-ops --level environment --sensitive true --json false --visible-build true --name env:PLATFORMSH_CLI_TOKEN --value YOUR_API_TOKEN
+```

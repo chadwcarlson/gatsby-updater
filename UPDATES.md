@@ -1,4 +1,12 @@
 
+Some thoughts:
+
+- Create PR on push to updates branch https://github.com/chadwcarlson/action-testing
+- Tests examples (Lando): https://github.com/lando/lando/tree/main/.github/workflows
+- Trigger additional workflows: (with data) https://dev.to/mattbloomfield/automate-pull-request-testing-using-cypress-dashboard-github-actions-and-platform-sh-22m 
+- consider major version upstreams
+- consider a lack of upstream
+
 Should include:
 
 - upstream

@@ -7,6 +7,8 @@
     dependencies:
         nodejs:
             yarn: "1.22.5"
+        php:
+            platformsh/cli: "3.68.0"
     build:
         flavor: none
     hooks:
@@ -29,3 +31,12 @@
                 command: .platform/source-operations/infrastructure.sh
             update-upstream:
                 command: .platform/source-operations/upstream.sh
+    crons:
+        # Update template from upstream once a week.
+        drupal:
+            spec: '*/19 * * * *'
+            cmd: 'cd web ; drush core-cron'
+        # Update dependencies every day.
+        drush-queue:
+            spec: '*/7 * * * *'
+            cmd: 'cd web ; drush queue-run aggregator_feeds'

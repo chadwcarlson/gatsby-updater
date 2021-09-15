@@ -2,21 +2,21 @@
 
 set -e
 
+UPSTREAM=$UPSTREAM_REMOTE
+UPSTREAM=$UPSTREAM_TEMPLATE
+
 # Fetch upstream.
 echo "- Retrieving upstream."
-git remote add upstream $UPSTREAM_REMOTE       
-git fetch --all
+git remote add upstream $UPSTREAM
+git fetch upstream
 git merge --allow-unrelated-histories -X ours upstream/master
+# git merge --allow-unrelated-histories -X ours --squash upstream/master
 
 # Modify upstream.
 echo "- Modifying upstream."
-rm package-lock.json
-mv README.md README_UPSTREAM.md
-
-# Add template files.
-echo "- Adding common template files."
-cp -R .platform/template/files/. .
-# mv .github .something
+git clone $UPSTREAM upstream-repo
+cp upstream-repo/README.md README_UPSTREAM.md 
+rm -rf upstream-repo
 
 # Stage and commit.
 git add .

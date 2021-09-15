@@ -3,6 +3,7 @@
     variables:
         env:
             UPSTREAM_REMOTE: "https://github.com/gatsbyjs/gatsby-starter-blog.git" 
+            UPSTREAM_TEMPLATE: "https://github.com/chadwcarlson/gatsby-updater.git"
     dependencies:
         nodejs:
             yarn: "1.22.5"

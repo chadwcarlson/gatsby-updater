@@ -2,6 +2,7 @@
     type: 'nodejs:14'
     variables:
         env:
+            UPDATES_ENVIRONMENT: "files-ops"
             UPSTREAM_REMOTE: "https://github.com/gatsbyjs/gatsby-starter-blog.git" 
             UPSTREAM_TEMPLATE: "https://github.com/chadwcarlson/gatsby-updater.git"
     dependencies:
@@ -31,12 +32,23 @@
                 command: .platform/source-operations/infrastructure.sh
             update-upstream:
                 command: .platform/source-operations/upstream.sh
+    timezone: "America/New_York"
     crons:
-        # Update template from upstream once a week.
-        drupal:
-            spec: '*/19 * * * *'
-            cmd: 'cd web ; drush core-cron'
         # Update dependencies every day.
-        drush-queue:
-            spec: '*/7 * * * *'
-            cmd: 'cd web ; drush queue-run aggregator_feeds'
+        update-dependencies:
+            spec: '19 1 * * *'
+            cmd: |
+                if [ "$PLATFORM_BRANCH" = "$UPDATES_ENVIRONMENT" ]; then
+                    platform backup:create --yes --no-wait
+                    platform sync code data --yes --no-wait
+                    platform source-operation:run update-dependencies
+                fi  
+        # Update template from upstream once a week.
+        update-upstream:
+            spec: '11 1 * * 0'
+            cmd: |
+                if [ "$PLATFORM_BRANCH" = "$UPDATES_ENVIRONMENT" ]; then
+                    platform backup:create --yes --no-wait
+                    platform sync code data --yes --no-wait
+                    platform source-operation:run update-upstream
+                fi  

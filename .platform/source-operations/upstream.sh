@@ -3,7 +3,7 @@
 set -e
 
 UPSTREAM=$UPSTREAM_REMOTE
-UPSTREAM=$UPSTREAM_TEMPLATE
+# UPSTREAM=$UPSTREAM_TEMPLATE
 
 # Fetch upstream.
 echo "- Retrieving upstream."

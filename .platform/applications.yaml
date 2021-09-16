@@ -13,9 +13,7 @@
     build:
         flavor: none
     hooks:
-        build: |
-            ls -a
-            .platform/scripts/build.sh
+        build: ./hooks-build.sh
     web:
         locations:
             '/':
@@ -35,7 +33,7 @@
     crons:
         update-dependencies:
             spec: '19 1 * * *'
-            cmd: .platform/scripts/cron-update-dependencies.sh
+            cmd: ./crons-update-dependencies.sh
         update-upstream:
             spec: '11 1 * * 0'
-            cmd: .platform/scripts/cron-update-dependencies.sh
+            cmd: ./crons-update-dependencies.sh

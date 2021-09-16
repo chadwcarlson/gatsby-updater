@@ -13,10 +13,7 @@
     build:
         flavor: none
     hooks:
-        build: |
-            set -e
-            yarn --ignore-optional --frozen-lockfile 
-            yarn build
+        build: .platform/scripts/build.sh
     web:
         locations:
             '/':
@@ -34,21 +31,9 @@
                 command: .platform/source-operations/upstream.sh
     timezone: "America/New_York"
     crons:
-        # Update dependencies every day (1:19am EST).
         update-dependencies:
             spec: '19 1 * * *'
-            cmd: |
-                if [ "$PLATFORM_BRANCH" = "$UPDATES_ENVIRONMENT" ]; then
-                    platform backup:create --yes --no-wait
-                    platform sync code data --yes --no-wait
-                    platform source-operation:run update-dependencies
-                fi  
-        # Update template from upstream once a week (1:11am EST).
+            cmd: .platform/scripts/cron-update-dependencies.sh
         update-upstream:
             spec: '11 1 * * 0'
-            cmd: |
-                if [ "$PLATFORM_BRANCH" = "$UPDATES_ENVIRONMENT" ]; then
-                    platform backup:create --yes --no-wait
-                    platform sync code data --yes --no-wait
-                    platform source-operation:run update-upstream
-                fi  
+            cmd: .platform/scripts/cron-update-dependencies.sh

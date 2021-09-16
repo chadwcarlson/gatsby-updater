@@ -26,8 +26,14 @@ cat package.json | jq -r '.name = "gatsby-starter-blog-platformsh"' \
             | jq -r '.repository.url = "git+https://github.com/chadwcarlson/gatsby-updater.git"' \
             > package.json
 
-# Update dependencies.
+cat package-lock.json | jq -r '.name = "gatsby-starter-blog-platformsh"' \
+            > package-lock.json
+
+
+# Update dependencies & verify builds.
 yarn upgrade
+rm -rf node_modules && rm package-lock.json 
+npm install
 npm update
 
 # Format changes.

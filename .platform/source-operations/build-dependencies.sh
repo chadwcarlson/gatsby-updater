@@ -18,7 +18,7 @@ with open('.platform/applications.yaml', 'r') as file:
     if (latest > current):
         data[0]['dependencies'][sys.argv[1]][sys.argv[2]] = latest
         with open('.platform/applications.yaml', 'w') as file:
-            yaml.dump(data, file, indent=4, default_flow_style=False)
+            yaml.dump(data, file, indent=4, default_flow_style=True)
 END_SCRIPT
 
 python bump.py $1 $2 $3

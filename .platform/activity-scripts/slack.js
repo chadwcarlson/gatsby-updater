@@ -2,7 +2,7 @@ function getEnvironmentVariables() {
   return activity.payload.deployment.variables.reduce(
     (vars, { name, value }) => ({
       ...vars,
-      [name]: value
+      [name]: value,
     }),
     {}
   )
@@ -41,17 +41,17 @@ function sendSlackMessage(title, message) {
       {
         title: messageTitle,
         text: message,
-        color: color
-      }
-    ]
+        color: color,
+      },
+    ],
   }
 
   const resp = fetch(url, {
     method: "POST",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
-    body: JSON.stringify(body)
+    body: JSON.stringify(body),
   })
 
   if (!resp.ok) {

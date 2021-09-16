@@ -5,7 +5,7 @@ Some thoughts:
 - Tests examples (Lando): https://github.com/lando/lando/tree/main/.github/workflows
 - Trigger additional workflows: (with data) https://dev.to/mattbloomfield/automate-pull-request-testing-using-cypress-dashboard-github-actions-and-platform-sh-22m 
 - consider major version upstreams
-- consider a lack of upstream
+- consider a lack of upstream (do we really want to keep these? just dep updates at that point)
 
 Should include:
 
@@ -17,10 +17,18 @@ Should include:
 - github token refresh on integrations
 - updates to a common changelog
 - tagging
+- auto merging updates branch on passed tests
 
 Some of these will be Source operations, others will be github actions, or combination of both. It would also be great to include activity scripts with these for our own monitoring and as an example, which would fall under (common). In those cases we would just use an action to look for upstream updates, and then update the project's activity script. 
 
 Remember: doesn't work on Pull request environments.
+
+Forwarding logs to integration/elsewhere.
+
+```
+Data in the activity: platform project:curl environments/files-ops/activities/wlu5pp6umglzs
+Streaming logs for act: platform project:curl activities/wlu5pp6umglzs/log?max_items=0&max_delay=1000&start_at=0
+```
 
 Notes:
 

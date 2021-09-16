@@ -18,6 +18,9 @@ git clone $UPSTREAM upstream-repo
 cp upstream-repo/README.md README_UPSTREAM.md 
 rm -rf upstream-repo
 
+# Update dependencies.
+yarn upgrade
+
 # Stage and commit.
 git add .
 STAGED_UPDATES=$(git diff --cached)

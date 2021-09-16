@@ -34,7 +34,7 @@
                 command: .platform/source-operations/upstream.sh
     timezone: "America/New_York"
     crons:
-        # Update dependencies every day.
+        # Update dependencies every day (1:19am EST).
         update-dependencies:
             spec: '19 1 * * *'
             cmd: |
@@ -43,7 +43,7 @@
                     platform sync code data --yes --no-wait
                     platform source-operation:run update-dependencies
                 fi  
-        # Update template from upstream once a week.
+        # Update template from upstream once a week (1:11am EST).
         update-upstream:
             spec: '11 1 * * 0'
             cmd: |

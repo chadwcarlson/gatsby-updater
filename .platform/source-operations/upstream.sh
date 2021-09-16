@@ -24,7 +24,7 @@ cat package.json | jq -r '.name = "gatsby-starter-blog-platformsh"' \
             | jq -r '.bugs.url = "https://github.com/chadwcarlson/gatsby-updater/issues"' \
             | jq -r '.homepage = "https://github.com/chadwcarlson/gatsby-updater#readme"' \
             | jq -r '.repository.url = "git+https://github.com/chadwcarlson/gatsby-updater.git"' \
-            > test.json
+            > package.json
 
 # Update dependencies.
 yarn upgrade

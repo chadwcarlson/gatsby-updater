@@ -1,5 +1,3 @@
-
-
 # Platform.sh Community Code of Conduct
 
 ## Our Pledge

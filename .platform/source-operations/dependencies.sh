@@ -3,6 +3,7 @@
 set -e
 
 yarn upgrade
+npm update
 
 git add .
 STAGED_UPDATES=$(git diff --cached)

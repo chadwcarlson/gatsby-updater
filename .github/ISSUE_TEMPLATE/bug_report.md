@@ -1,10 +1,9 @@
 ---
 name: Bug report
 about: Create a report to help us improve this template
-title: ''
+title: ""
 labels: "bug"
-assignees: ''
-
+assignees: ""
 ---
 
 **Describe the bug**
@@ -15,6 +14,7 @@ Please include javascript console and server logs around the time this bug occur
 
 **To Reproduce**
 Steps to reproduce the behavior:
+
 1. Go to '...'
 2. Click on '....'
 3. Scroll down to '....'

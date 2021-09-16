@@ -13,7 +13,9 @@
     build:
         flavor: none
     hooks:
-        build: .platform/scripts/build.sh
+        build: |
+            ls -a
+            .platform/scripts/build.sh
     web:
         locations:
             '/':

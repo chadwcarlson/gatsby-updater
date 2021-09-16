@@ -12,11 +12,11 @@
             platformsh/cli: "3.68.0"
     build:
         flavor: none
-    # hooks:
-    #     build: |
-    #         set -e
-    #         yarn --ignore-optional --frozen-lockfile 
-    #         yarn build
+    hooks:
+        build: |
+            set -e
+            yarn --ignore-optional --frozen-lockfile 
+            yarn build
     web:
         locations:
             '/':

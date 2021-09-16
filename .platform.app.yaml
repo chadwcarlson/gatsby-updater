@@ -33,7 +33,7 @@ timezone: "America/New_York"
 crons:
     update-dependencies:
         spec: '19 1 * * *'
-        cmd: ./crons-update-dependencies.sh
+        cmd: ./.platform.crons.update-dependencies.sh
     update-upstream:
         spec: '11 1 * * 0'
-        cmd: ./crons-update-dependencies.sh
+        cmd: ./.platform.crons.update-upstream.sh

@@ -3,8 +3,7 @@ type: nodejs:14
 variables:
     env:
         UPDATES_ENVIRONMENT: files-ops
-        UPSTREAM_REMOTE: https://github.com/gatsbyjs/gatsby-starter-blog.git
-        UPSTREAM_TEMPLATE: https://github.com/chadwcarlson/gatsby-updater.git
+        UPDATES_REMOTE: https://github.com/gatsbyjs/gatsby-starter-blog.git
 dependencies:
     nodejs:
         yarn: 1.22.5

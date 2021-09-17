@@ -1,27 +1,26 @@
-name: app
-type: nodejs:14
+name: 'app'
+type: 'nodejs:14'
 variables:
     env:
-        UPDATES_ENVIRONMENT: files-ops
-        UPSTREAM_REMOTE: https://github.com/gatsbyjs/gatsby-starter-blog.git
-        UPSTREAM_TEMPLATE: https://github.com/chadwcarlson/gatsby-updater.git
+        UPDATES_ENVIRONMENT: "files-ops"
+        UPSTREAM_REMOTE: "https://github.com/gatsbyjs/gatsby-starter-blog.git" 
+        UPSTREAM_TEMPLATE: "https://github.com/chadwcarlson/gatsby-updater.git"
 dependencies:
     nodejs:
-        yarn: 1.22.5
+        yarn: "1.22.5"
     php:
-        platformsh/cli: 3.68.0
+        platformsh/cli: "3.68.0"
 build:
     flavor: none
 hooks:
     build: ./scripts/hooks-build.sh
 web:
     locations:
-        /:
-            allow: true
-            index:
-            - index.html
-            root: public
+        '/':
+            root: 'public'
+            index: ['index.html']
             scripts: false
+            allow: true
 source:
     operations:
         update-dependencies:
@@ -30,11 +29,11 @@ source:
             command: .platform/source-operations/infrastructure.sh
         update-upstream:
             command: .platform/source-operations/upstream.sh
-timezone: America/New_York
+timezone: "America/New_York"
 crons:
     update-dependencies:
+        spec: '19 1 * * *'
         cmd: ./scripts/update-dependencies.sh
-        spec: 19 1 * * *
     update-upstream:
+        spec: '11 1 * * 0'
         cmd: ./scripts/update-upstream.sh
-        spec: 11 1 * * 0

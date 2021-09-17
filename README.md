@@ -7,10 +7,11 @@
 <br /><br />
 <p align="center">
     <a href="https://github.com/metabase/metabase">
-        <img src="https://www.metabase.com/images/logo.svg" alt="Logo" width="120" height="120">
+        <img src="https://www.gatsbyjs.com/Gatsby-Logo.svg" alt="Logo" height="120">
     </a>
 </p>
-<h1 align="center">Deploying Metabase on Platform.sh</h1>
+<br />
+<h1 align="center">Deploying Gatsby on Platform.sh</h1>
 
 <p align="center">
     <strong>Contribute to the Platform.sh knowledge base, or check out our resources</strong>
